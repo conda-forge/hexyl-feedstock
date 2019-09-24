@@ -7,3 +7,6 @@ cargo install --locked --root "$PREFIX" --path .
 
 # strip debug symbols
 "$STRIP" "$PREFIX/bin/hexyl"
+
+# remove extra build file
+rm -f "${PREFIX}/.crates.toml"
