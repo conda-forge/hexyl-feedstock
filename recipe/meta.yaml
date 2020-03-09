@@ -1,4 +1,4 @@
-{% set version = "0.6.0" %}
+{% set version = "0.7.0" %}
 {% set native = 'm2w64-' if win else '' %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/sharkdp/hexyl/archive/v{{ version }}.tar.gz
-  sha256: 5031b20c13b3ccb27abbf119b54609cef16c4152aca2823ee5c53cd5f434b97e
+  sha256: 92aa86fc2b482d2d7abf07565ea3587767a9beb9135a307aadeba61cc84f4b34
 
 build:
   number: 0
