@@ -1,5 +1,4 @@
-{% set version = "0.9.0" %}
-{% set native = 'm2w64-' if win else '' %}
+{% set version = "0.16.0" %}
 
 package:
   name: hexyl
@@ -7,16 +6,17 @@ package:
 
 source:
   url: https://github.com/sharkdp/hexyl/archive/v{{ version }}.tar.gz
-  sha256: 73f0dc1be1eaa1a34e3280bc1eeb4f86f34b024205fc7bf3c87d5a0bc4021a6a
+  sha256: 52853b4edede889b40fd6ff132e1354d957d1f26ee0c26ebdea380f8ce82cb0b
 
 build:
   number: 0
 
 requirements:
   build:
-    - rust
-    - {{ compiler('c') }}              # [unix]
-    - {{ native }}binutils               # [win]
+    - {{ compiler('rust') }}
+    - {{ compiler('c') }}
+    - {{ stdlib('c') }}
+    - cargo-bundle-licenses
 
 test:
   commands:
@@ -25,10 +25,12 @@ test:
 about:
   home: https://github.com/sharkdp/hexyl
   license: MIT
-  license_family: MIT
-  license_file: LICENSE-MIT
+  license_file:
+    - LICENSE-MIT
+    - THIRDPARTY.yml
   summary: A command-line hex viewer
 
 extra:
   recipe-maintainers:
     - apcamargo
+    - danielnachun
