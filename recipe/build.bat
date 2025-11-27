@@ -1,4 +1,5 @@
 @echo on
+@setlocal EnableDelayedExpansion
 
 :: check licenses
 cargo-bundle-licenses ^
@@ -8,7 +9,7 @@ cargo-bundle-licenses ^
 :: build statically linked binary with Rust
 cargo install --bins --no-track --locked --root %LIBRARY_PREFIX% --path . || goto :error
 
-goto :EOF
+goto :eof
 
 :error
 echo Failed with error #%errorlevel%.
